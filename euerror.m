@@ -1,9 +1,9 @@
-% Error function
+% Analitical solution, Euclidean error, punctual error
 function [error,ansol,perror]=euerror(N,NCOORD,areanod,u)
 afun=@(x,y)(x.^2+y.^2-(x.^2.*y.^2)-1);
 serror=0;
-ansol=zeros(1,N);
-perror=zeros(1,N);
+ansol=zeros(N,1);
+perror=zeros(N,1);
 for i=1:N
     Xnode=NCOORD(i,1);
     Ynode=NCOORD(i,2);

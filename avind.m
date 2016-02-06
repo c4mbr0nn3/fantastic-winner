@@ -11,10 +11,11 @@ for i=2:N
     z(i)=(v(i)-s(i))/PREC(k);
 end
 w=zeros(1,N);
-clear s
-s=zeros(1,N-1);
+% clear s
+% s=zeros(1,N-1);
 w(N)=z(N)/PREC(NTERM);
 for i=N-1:-1:1
+    s(i)=0;
     k=IA(i);
     for m=IA(i)+1:IA(i+1)-1
         j=JA(m);

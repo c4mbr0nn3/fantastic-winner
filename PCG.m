@@ -8,8 +8,10 @@ if choice3==1
         h(i)=DIAG(i)*b(i);
     end
 end
+% if choice2==1
 [Ah]=matvec(N,IA,SYSMAT,h,JA);
 r=b-Ah;
+% end
 u=h;
 clear h
 if choice3==1
@@ -26,7 +28,6 @@ while (tau>tol) & (iter<1000)
     alpha=(r*h.')/(h*Ah.');
     u=u+(alpha*h);
     r=r-(alpha*Ah);
-    Rres(1,iter+1)=norm(r)/norm(b);
     if choice3==1
         v=DIAG.*r;
     elseif choice3==2
@@ -36,9 +37,10 @@ while (tau>tol) & (iter<1000)
     h=v+(beta*h);
     iter=iter+1;
     tau=norm(r)/norm(b);
+    Rres(1,iter)=tau;
 end
 Rres=Rres(Rres~=0);
-
+u=u.';
 % Calculate real residual
 [Au]=matvec(N,IA,SYSMAT,u,JA);
 taureal=norm(b-Au)/norm(b);
