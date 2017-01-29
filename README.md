@@ -1,3 +1,5 @@
 # fantastic-winner
 
-NUMERICAL METHODS FOR DIFFERENTIAL EQUATIONS - Exam project
+## Numerical methods for differential equations
+
+Final exam project for the numerical methods course.
